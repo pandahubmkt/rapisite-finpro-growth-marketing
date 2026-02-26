@@ -1,26 +1,27 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Portfolio() {
-  const projects = [
+  const cases = [
     {
-      name: "Silva & Associados",
-      category: "Advocacia Full Service",
-      impact: "+150% em leads qualificados no primeiro trimestre.",
-      image: "🏛️"
+      title: "Escritório de Advocacia Criminal",
+      result: "Redução de 65% no Custo por Lead",
+      details: "Implementação de rastreamento avançado e segmentação por intenção no Google Ads.",
+      stats: ["+120 leads/mês", "ROAS 4.8x"]
     },
     {
-      name: "Melo Consultoria Tributária",
-      category: "Consultoria",
-      impact: "Rebranding completo e posicionamento premium.",
-      image: "📊"
+      title: "Banca Especializada em Direito Civil",
+      result: "Aumento de 300% em Consultas Agendadas",
+      details: "Estruturação de funil de conversão com Landing Pages de alta performance e CRM.",
+      stats: ["90% conversão lead/agendamento", "ROI Mensurável"]
     },
     {
-      name: "Advocacia Digital 360",
-      category: "Direito Digital",
-      impact: "Implementação de funil de vendas automatizado.",
-      image: "💻"
+      title: "Agência de Marketing Jurídico",
+      result: "Escala de Operação em 3 Estados",
+      details: "Uso do Método FP para estruturar fundamentos e escalar investimentos de forma previsível.",
+      stats: ["Crescimento 2.5x em 6 meses", "Foco em LTV"]
     }
   ];
 
@@ -30,36 +31,53 @@ export default function Portfolio() {
       
       <section className="pt-40 pb-20">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Nosso <span className="text-orange-500">Portfólio</span></h1>
-            <p className="text-gray-400 text-lg">Resultados reais para clientes reais. Veja como transformamos a presença digital e o faturamento de nossos parceiros.</p>
+          <div className="max-w-4xl">
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter">Resultados que <span className="text-primary italic">falam por si.</span></h1>
+            <p className="text-xl text-gray-400 mb-12 leading-relaxed max-w-2xl">
+              Não entregamos apenas números. Entregamos crescimento de faturamento, previsibilidade de agenda e autoridade de marca para advogados de elite.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div key={index} className="rounded-3xl bg-zinc-950 border border-white/10 overflow-hidden hover:border-orange-500 transition-all">
-                <div className="h-48 bg-orange-600/20 flex items-center justify-center text-6xl">
-                  {project.image}
+          <div className="grid md:grid-cols-1 gap-12 mt-20">
+            {cases.map((item, index) => (
+              <div key={index} className="bg-glass border border-white/5 rounded-3xl overflow-hidden flex flex-col md:flex-row group transition-all hover:border-primary/20">
+                <div className="md:w-1/3 bg-secondary/50 p-12 flex items-center justify-center relative overflow-hidden">
+                   <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                   <div className="text-6xl group-hover:scale-110 transition-transform">⚖️</div>
                 </div>
-                <div className="p-8">
-                  <div className="text-orange-500 text-sm font-bold uppercase tracking-wider mb-2">{project.category}</div>
-                  <h3 className="text-2xl font-bold mb-4">{project.name}</h3>
-                  <p className="text-gray-400 mb-6">{project.impact}</p>
+                <div className="md:w-2/3 p-8 md:p-16">
+                  <h3 className="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-4">{item.result}</h3>
+                  <h2 className="text-3xl font-bold mb-6 group-hover:text-primary transition-colors">{item.title}</h2>
+                  <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+                    {item.details}
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    {item.stats.map((stat, i) => (
+                      <span key={i} className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-medium">
+                        {stat}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mt-20 p-12 rounded-3xl bg-gradient-to-r from-orange-600 to-orange-800 text-center">
-            <h2 className="text-3xl font-bold mb-6">Quer ser o nosso próximo case de sucesso?</h2>
+      <section className="py-24 bg-primary text-background">
+         <div className="container mx-auto px-6 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight">Quer resultados como estes?</h2>
+            <p className="text-xl mb-12 font-medium opacity-90 max-w-xl mx-auto">
+              Seu escritório está a um passo de se tornar uma máquina de geração de clientes qualificados.
+            </p>
             <Link 
               href="https://wa.me/553298214116" 
-              className="bg-black text-white px-8 py-4 rounded-full font-bold hover:bg-zinc-900 transition-all inline-block"
+              className="bg-background text-primary px-10 py-5 rounded-full font-bold text-xl hover:scale-105 transition-all inline-block shadow-2xl shadow-black/20"
             >
-              Iniciar meu projeto
+              Agendar Diagnóstico Gratuito
             </Link>
-          </div>
-        </div>
+         </div>
       </section>
 
       <Footer />

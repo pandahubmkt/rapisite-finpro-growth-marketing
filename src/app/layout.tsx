@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Finpro Growth Marketing | Consultoria e Advocacia",
-  description: "Especialistas em crescimento acelerado para escritórios de advocacia e consultorias.",
+  title: "FinPro Growth Marketing | Growth, Performance e Escala",
+  description: "Transformamos marketing em um sistema estruturado de crescimento. Especialistas em tráfego pago e posicionamento estratégico.",
 };
 
 export default function RootLayout({
